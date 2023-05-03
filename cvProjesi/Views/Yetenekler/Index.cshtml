@@ -1,0 +1,54 @@
+﻿@model IEnumerable<cvProjesi.Models.Yetenekler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seviye)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kullanici)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seviye)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.KullaniciId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.YetenekId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.YetenekId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.YetenekId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

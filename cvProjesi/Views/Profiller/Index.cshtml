@@ -1,0 +1,60 @@
+﻿@model IEnumerable<cvProjesi.Models.Profiller>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsUnvani)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnvanAciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenelBilgi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kullanici)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsUnvani)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnvanAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenelBilgi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.KullaniciId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProfilId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProfilId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProfilId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

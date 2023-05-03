@@ -1,0 +1,37 @@
+﻿@model cvProjesi.Models.Diller
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Diller</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dil)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Seviye)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Seviye)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kullanici)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kullanici.KullaniciId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.DilId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

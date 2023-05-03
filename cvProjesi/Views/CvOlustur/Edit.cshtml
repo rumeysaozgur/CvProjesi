@@ -1,0 +1,87 @@
+﻿@model cvProjesi.Models.CvOlustur
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>CvOlustur</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="KayıtId" />
+            <div class="form-group">
+                <label asp-for="KullaniciId" class="control-label"></label>
+                <select asp-for="KullaniciId" class="form-control" asp-items="ViewBag.KullaniciId"></select>
+                <span asp-validation-for="KullaniciId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label"></label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sablon" class="control-label"></label>
+                <select asp-for="Sablon" class="form-control" asp-items="ViewBag.Sablon"></select>
+                <span asp-validation-for="Sablon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yetenekler" class="control-label"></label>
+                <input asp-for="Yetenekler" class="form-control" />
+                <span asp-validation-for="Yetenekler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egitimler" class="control-label"></label>
+                <input asp-for="Egitimler" class="form-control" />
+                <span asp-validation-for="Egitimler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kurslar" class="control-label"></label>
+                <input asp-for="Kurslar" class="form-control" />
+                <span asp-validation-for="Kurslar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isler" class="control-label"></label>
+                <input asp-for="Isler" class="form-control" />
+                <span asp-validation-for="Isler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basarilar" class="control-label"></label>
+                <input asp-for="Basarilar" class="form-control" />
+                <span asp-validation-for="Basarilar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Portfolio" class="control-label"></label>
+                <input asp-for="Portfolio" class="form-control" />
+                <span asp-validation-for="Portfolio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diller" class="control-label"></label>
+                <input asp-for="Diller" class="form-control" />
+                <span asp-validation-for="Diller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OzelBolum" class="control-label"></label>
+                <input asp-for="OzelBolum" class="form-control" />
+                <span asp-validation-for="OzelBolum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

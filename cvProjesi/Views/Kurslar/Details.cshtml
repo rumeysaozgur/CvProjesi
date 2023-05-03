@@ -1,0 +1,43 @@
+﻿@model cvProjesi.Models.Kurslar
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Kurslar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KursAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KursAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kurum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kurum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kullanici)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kullanici.KullaniciId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.KursId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

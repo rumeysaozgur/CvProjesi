@@ -1,0 +1,102 @@
+﻿@model IEnumerable<cvProjesi.Models.CvOlustur>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yetenekler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Egitimler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kurslar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Basarilar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portfolio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OzelBolum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kullanici)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SablonNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yetenekler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Egitimler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kurslar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Basarilar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Portfolio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OzelBolum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.KullaniciId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SablonNavigation.SablonId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KayıtId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KayıtId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KayıtId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

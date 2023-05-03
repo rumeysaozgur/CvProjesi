@@ -1,0 +1,127 @@
+﻿@model cvProjesi.Models.KisiselBilgi
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>KisiselBilgi</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EPosta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EPosta)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PostaKodu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PostaKodu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sehir)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sehir)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ilce)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ilce)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Resim)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogumTarihi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogumTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogumYeri)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogumYeri)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SurucuEhliyeti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SurucuEhliyeti)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cinsiyet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cinsiyet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AskerlikDurumu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AskerlikDurumu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MedeniDurumu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MedeniDurumu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Linkedn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Linkedn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Websitesi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Websitesi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UyeSifresi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UyeSifresi)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.KullaniciId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

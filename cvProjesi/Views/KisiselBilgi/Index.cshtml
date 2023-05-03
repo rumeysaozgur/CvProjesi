@@ -1,0 +1,138 @@
+﻿@model IEnumerable<cvProjesi.Models.KisiselBilgi>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EPosta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostaKodu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sehir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ilce)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogumTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogumYeri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurucuEhliyeti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cinsiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AskerlikDurumu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedeniDurumu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Linkedn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Websitesi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UyeSifresi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EPosta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostaKodu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sehir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ilce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumYeri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurucuEhliyeti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AskerlikDurumu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedeniDurumu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linkedn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Websitesi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UyeSifresi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KullaniciId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KullaniciId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KullaniciId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

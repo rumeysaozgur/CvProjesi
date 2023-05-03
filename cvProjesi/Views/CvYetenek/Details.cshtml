@@ -1,0 +1,31 @@
+﻿@model cvProjesi.Models.CvYetenek
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CvYetenek</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kayit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kayit.KayıtId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yetenek)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yetenek.YetenekId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
