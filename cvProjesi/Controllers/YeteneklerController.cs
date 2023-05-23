@@ -17,11 +17,13 @@ namespace cvProjesi.Controllers.Admin
         {
             _context = new cvweb2Context();
         }
+        
 
         // GET: Yetenekler
         public async Task<IActionResult> Index()
         {
             var cvweb2Context = _context.Yeteneklers.Include(y => y.Kullanici);
+           
             return View(await cvweb2Context.ToListAsync());
         }
 

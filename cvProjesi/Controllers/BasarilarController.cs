@@ -34,7 +34,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var basarilar = await _context.Basarilars
-                .Include(b => b.Kullanici)
+                .Include(b => b.KullaniciId)
                 .FirstOrDefaultAsync(m => m.BasariId == id);
             if (basarilar == null)
             {
@@ -130,7 +130,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var basarilar = await _context.Basarilars
-                .Include(b => b.Kullanici)
+                .Include(b => b.KullaniciId)
                 .FirstOrDefaultAsync(m => m.BasariId == id);
             if (basarilar == null)
             {

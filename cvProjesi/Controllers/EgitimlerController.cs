@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using cvProjesi.Models;
+using System.Security.Claims;
 
 namespace cvProjesi.Controllers.Admin
 {
@@ -21,7 +22,7 @@ namespace cvProjesi.Controllers.Admin
         // GET: Egitimler
         public async Task<IActionResult> Index()
         {
-            var cvweb2Context = _context.Egitimlers.Include(e => e.Kullanici);
+            var cvweb2Context = _context.Egitimlers.Where(x=>x.KullaniciId.ToString()==User.FindFirst(ClaimTypes.GivenName).Value);
             return View(await cvweb2Context.ToListAsync());
         }
 
@@ -34,7 +35,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var egitimler = await _context.Egitimlers
-                .Include(e => e.Kullanici)
+                .Include(e => e.KullaniciId)
                 .FirstOrDefaultAsync(m => m.EgitimId == id);
             if (egitimler == null)
             {
@@ -130,7 +131,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var egitimler = await _context.Egitimlers
-                .Include(e => e.Kullanici)
+                .Include(e => e.KullaniciId)
                 .FirstOrDefaultAsync(m => m.EgitimId == id);
             if (egitimler == null)
             {

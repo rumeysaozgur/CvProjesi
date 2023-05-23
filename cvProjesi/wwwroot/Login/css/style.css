@@ -260,7 +260,7 @@ h1 {
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     letter-spacing: 2px;
-    margin: 1.2em 1vw;
+   /*margin: 0.2em;*/
     text-align: center;
     font-family: 'Amiri', serif;
 }
@@ -284,6 +284,21 @@ h1 {
 
 .w3ls-login input[type="email"],
 .w3ls-login input[type="password"] {
+    width: 100%;
+    color: #fff;
+    outline: none;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    -webkit-appearance: none;
+    font-family: 'Amiri', serif;
+    background: rgba(0, 0, 0, 0.53);
+}
+
+.w3ls-login input[type="tel"],
+.w3ls-login input[type="text"] {
     width: 100%;
     color: #fff;
     outline: none;
@@ -472,6 +487,8 @@ label.check {
     .w3ls-login form {
         padding: 25px 8px;
     }
+    .w3ls-login input[type="text"],
+    .w3ls-login input[type="tel"],
     .w3ls-login input[type="email"],
     .w3ls-login input[type="password"] {
         padding: 10px 15px;

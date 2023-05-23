@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using cvProjesi.Models;
+using System.Security.Claims;
 
 namespace cvProjesi.Controllers.Admin
 {
@@ -21,7 +22,7 @@ namespace cvProjesi.Controllers.Admin
         // GET: Kurslar
         public async Task<IActionResult> Index()
         {
-            var cvweb2Context = _context.Kurslars.Include(k => k.Kullanici);
+            var cvweb2Context = _context.Kurslars.Where(x => x.KullaniciId.ToString() == User.FindFirst(ClaimTypes.GivenName).Value);
             return View(await cvweb2Context.ToListAsync());
         }
 
@@ -34,7 +35,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var kurslar = await _context.Kurslars
-                .Include(k => k.Kullanici)
+                .Include(k => k.KullaniciId)
                 .FirstOrDefaultAsync(m => m.KursId == id);
             if (kurslar == null)
             {
@@ -65,7 +66,7 @@ namespace cvProjesi.Controllers.Admin
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KullaniciId"] = new SelectList(_context.KisiselBilgi, "KullaniciId", "KullaniciId", kurslar.KullaniciId);
-            return View(kurslar);
+            return View(nameof(Create));
         }
 
         // GET: Kurslar/Edit/5
@@ -130,7 +131,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var kurslar = await _context.Kurslars
-                .Include(k => k.Kullanici)
+                .Include(k => k.KullaniciId)
                 .FirstOrDefaultAsync(m => m.KursId == id);
             if (kurslar == null)
             {

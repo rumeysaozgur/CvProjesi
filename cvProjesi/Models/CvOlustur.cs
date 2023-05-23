@@ -47,5 +47,7 @@ public partial class CvOlustur
 
     public virtual ICollection<CvYetenek> CvYeteneks { get; set; } = new List<CvYetenek>();
 
+    public virtual KisiselBilgi Kullanici { get; set; } = null!;
+
     public virtual Sablon SablonNavigation { get; set; } = null!;
 }

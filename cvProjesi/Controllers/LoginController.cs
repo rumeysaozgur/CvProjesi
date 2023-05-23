@@ -1,7 +1,10 @@
 ﻿
 using cvProjesi.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace cvProjesi.Controllers
 {
@@ -9,9 +12,10 @@ namespace cvProjesi.Controllers
     {
 
 		private readonly cvweb2Context db;
-	
 
-		public LoginController()
+     
+
+        public LoginController()
 		{
 			db = new cvweb2Context();
 		
@@ -21,20 +25,32 @@ namespace cvProjesi.Controllers
         {
             return View();
         }
-		public IActionResult Index()
-		{
-			return View();
-		}
+	
 
 
 
 		[HttpPost]
-		public IActionResult Login([FromForm] KisiselBilgi p)
+		public async Task<IActionResult> LoginAsync([FromForm] YeniKayit p)
 		{		
-			var bilgiler =  db.KisiselBilgi.FirstOrDefault(x => x.EPosta == p.EPosta && x.UyeSifresi == p.UyeSifresi);        
+			var bilgiler =  db.YeniKayits.FirstOrDefault(x => x.Eposta == p.Eposta && x.Sifre == p.Sifre);        
+			var bilgiler2 =  db.KisiselBilgi.FirstOrDefault(x => x.EPosta == bilgiler.Eposta);        
             if (bilgiler != null)
 			{
-				return RedirectToAction("Index","Login");
+                List<Claim> claims = new List<Claim>() {
+                new Claim(ClaimTypes.NameIdentifier,p.Eposta),
+                new Claim(ClaimTypes.GivenName,bilgiler.Id.ToString()),
+                new Claim("OtherProperties","Admin"), 
+                 new Claim(ClaimTypes.Sid,bilgiler2.KullaniciId.ToString())///id sini de claim e ekledik
+                };
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                AuthenticationProperties properties = new AuthenticationProperties()
+                {
+                    AllowRefresh = true //,
+                    //IsPersistent = p.Durum
+                };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
+                return RedirectToAction("Index", "Admin");
+              
 			}
 			else
 			{
@@ -42,6 +58,35 @@ namespace cvProjesi.Controllers
 				return RedirectToAction("Login","Login");
 			}
         }
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View("deneme");
 
-	}
+
+        }
+        public IActionResult deneme()
+        {
+            return View();
+
+
+        }
+
+        [HttpPost]
+        public IActionResult Index(KisiselBilgi user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.KisiselBilgi.Add(user);
+                
+                db.SaveChanges();
+                return RedirectToAction("deneme", "Login");
+            }
+
+            return View(user);
+        }
+
+      
+
+    }
 }

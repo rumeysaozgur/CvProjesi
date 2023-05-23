@@ -1,7 +1,16 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Login/Login";//kimlik doðrulama esnasýnda tarayýcýnýn yönlendireceði yol.
+    x.ExpireTimeSpan = TimeSpan.FromMinutes(2);//kimlik doðrulama çerezinin ne kadar süreyle geçerli olacaðýný belirtir(2 dakika)
+});
 
 var app = builder.Build();
 

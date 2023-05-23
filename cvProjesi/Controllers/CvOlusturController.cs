@@ -21,7 +21,7 @@ namespace cvProjesi.Controllers.Admin
         // GET: CvOlustur
         public async Task<IActionResult> Index()
         {
-            var cvweb2Context = _context.CvOlusturs.Include(c => c.Kullanici).Include(c => c.SablonNavigation);
+            var cvweb2Context = _context.CvOlusturs.Include(c => c.KullaniciId).Include(c => c.SablonNavigation);
             return View(await cvweb2Context.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var cvOlustur = await _context.CvOlusturs
-                .Include(c => c.Kullanici)
+                .Include(c => c.KullaniciId)
                 .Include(c => c.SablonNavigation)
                 .FirstOrDefaultAsync(m => m.KayıtId == id);
             if (cvOlustur == null)
@@ -135,7 +135,7 @@ namespace cvProjesi.Controllers.Admin
             }
 
             var cvOlustur = await _context.CvOlusturs
-                .Include(c => c.Kullanici)
+                .Include(c => c.KullaniciId)
                 .Include(c => c.SablonNavigation)
                 .FirstOrDefaultAsync(m => m.KayıtId == id);
             if (cvOlustur == null)

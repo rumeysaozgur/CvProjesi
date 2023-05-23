@@ -41,7 +41,7 @@
                 @Html.DisplayNameFor(model => model.Aciklama)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kullanici)
+                @Html.DisplayNameFor(model => model.KullaniciId)
             </th>
             <th></th>
         </tr>
@@ -77,7 +77,7 @@
                 @Html.DisplayFor(modelItem => item.Aciklama)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kullanici.KullaniciId)
+                @Html.DisplayFor(modelItem => item.KullaniciId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.EgitimId">Edit</a> |

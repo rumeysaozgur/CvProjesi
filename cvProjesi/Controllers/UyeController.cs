@@ -24,14 +24,27 @@ namespace cvProjesi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(KisiselBilgi user)
+        public IActionResult Register(YeniKayit user)
         {
             if (ModelState.IsValid)
             {
-                _context.KisiselBilgi.Add(user);
+                _context.YeniKayits.Add(user);
+                KisiselBilgi kisisel = new KisiselBilgi();
+                string[] adsoyad = user.AdSoyad.Split(' ');
+                //if (adsoyad.Length > ) { 
+                //kisisel.Ad = adsoyad[0] + adsoyad[1];
+                //kisisel.Soyad = adsoyad[2];
+                //}else
+                //{
+                    kisisel.Ad = adsoyad[0];
+                    kisisel.Soyad = adsoyad[1];
+                //}
+                 
+                kisisel.EPosta=user.Eposta;
+                _context.KisiselBilgi.Add(kisisel);
 
                 _context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Login");
             }
 
             return View(user);

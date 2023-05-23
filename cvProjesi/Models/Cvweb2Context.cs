@@ -35,6 +35,8 @@ public partial class cvweb2Context : DbContext
 
     public virtual DbSet<CvYetenek> CvYeteneks { get; set; }
 
+    public virtual DbSet<Deneme> Denemes { get; set; }
+
     public virtual DbSet<Diller> Dillers { get; set; }
 
     public virtual DbSet<Egitimler> Egitimlers { get; set; }
@@ -57,7 +59,7 @@ public partial class cvweb2Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlite("Data Source=C:\\Users\\Rumeysa ÖZGÜR\\Desktop\\cvSitesi\\cvProjesi\\cvProjesi\\Data\\cvweb2.db");
+        => optionsBuilder.UseSqlite("Data Source=C:\\\\\\\\Users\\\\\\\\Rumeysa ÖZGÜR\\\\\\\\Desktop\\\\\\\\cvSitesi\\\\\\\\cvProjesi\\\\\\\\cvProjesi\\\\\\\\Data\\\\\\\\cvweb2.db");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -184,6 +186,10 @@ public partial class cvweb2Context : DbContext
             entity.Property(e => e.Isler).HasColumnName("isler");
             entity.Property(e => e.OzelBolum).HasColumnName("ozelBolum");
 
+            entity.HasOne(d => d.Kullanici).WithMany(p => p.CvOlusturs)
+                .HasForeignKey(d => d.KullaniciId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
             entity.HasOne(d => d.SablonNavigation).WithMany(p => p.CvOlusturs)
                 .HasForeignKey(d => d.Sablon)
                 .OnDelete(DeleteBehavior.ClientSetNull);
@@ -244,6 +250,15 @@ public partial class cvweb2Context : DbContext
             entity.HasOne(d => d.Yetenek).WithMany(p => p.CvYeteneks)
                 .HasForeignKey(d => d.YetenekId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+        });
+
+        modelBuilder.Entity<Deneme>(entity =>
+        {
+            entity.ToTable("deneme");
+
+            entity.HasIndex(e => e.Id, "IX_deneme_id").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
         });
 
         modelBuilder.Entity<Diller>(entity =>

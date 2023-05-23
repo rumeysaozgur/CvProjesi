@@ -1,4 +1,5 @@
-﻿@model IEnumerable<cvProjesi.Models.KisiselBilgi>
+﻿@using System.Security.Claims;
+@model IEnumerable<cvProjesi.Models.KisiselBilgi>
 
 @{
     ViewData["Title"] = "Index";
@@ -71,7 +72,17 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @{
+            ////ClaimsIdentity identity = User.Identity as ClaimsIdentity;
+            //var id = User.Claims.FirstOrDefault(x => x.Equals ==sid);
+            //Model.FirstOrDefault(x => x.KullaniciId==User.Claims.);
+
+            var sidClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid);
+            long sidValue = Convert.ToInt64(sidClaim.Value);
+            List<KisiselBilgi> Kisiler = Model.Where(x => x.KullaniciId == sidValue).ToList();
+
+        }
+        @foreach (var item in Kisiler) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Ad)
@@ -127,10 +138,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UyeSifresi)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.KullaniciId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.KullaniciId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KullaniciId">Delete</a>
+                <td class="btn-group btn-group-sm">
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.KullaniciId"><i class="fas fa-eye"></i></a>
+          
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.KullaniciId"><i class="fas fa-trash"></a>
+                 
             </td>
         </tr>
 }

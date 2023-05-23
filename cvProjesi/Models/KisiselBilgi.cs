@@ -45,6 +45,8 @@ public partial class KisiselBilgi
 
     public virtual ICollection<Basarilar> Basarilars { get; set; } = new List<Basarilar>();
 
+    public virtual ICollection<CvOlustur> CvOlusturs { get; set; } = new List<CvOlustur>();
+
     public virtual ICollection<Diller> Dillers { get; set; } = new List<Diller>();
 
     public virtual ICollection<Egitimler> Egitimlers { get; set; } = new List<Egitimler>();

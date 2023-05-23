@@ -1,124 +1,114 @@
-﻿@model cvProjesi.Models.KisiselBilgi
+﻿@model cvProjesi.Models.YeniKayit
 
 @{
     Layout = null;
 }
 
-<!DOCTYPE html>
 
-<html>
+<!DOCTYPE HTML>
+<html lang="zxx">
+
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
+	<title>Üye Kayıt</title>
+	<!-- Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Particles Login Form Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+		
+	</script>
+	<style>
+		.w3ls-login input[type="tel"],
+.w3ls-login input[type="text"] {
+    width: 100%;
+    color: #fff;
+    outline: none;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    -webkit-appearance: none;
+    font-family: 'Amiri', serif;
+    background: rgba(0, 0, 0, 0.53);
+}
+	</style>
+	@*<style>
+		h1{
+			margin:0 !important;
+		}
+	</style>*@
+	<!-- //Meta-Tags -->
+	<!-- Stylesheets -->
+	<link href="~/Login/css/style.css" rel='stylesheet' type='text/css' />
+	<!-- online fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Amiri:400,400i,700,700i" rel="stylesheet">
 </head>
+
 <body>
-
-<h4>KisiselBilgi</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Ad" class="control-label"></label>
-                <input asp-for="Ad" class="form-control" />
-                <span asp-validation-for="Ad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Soyad" class="control-label"></label>
-                <input asp-for="Soyad" class="form-control" />
-                <span asp-validation-for="Soyad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EPosta" class="control-label"></label>
-                    <input asp-for="EPosta" class="form-control" placeholder="info@gmail.com" />
-                <span asp-validation-for="EPosta" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefon" class="control-label"></label>
-                <input asp-for="Telefon" class="form-control" />
-                <span asp-validation-for="Telefon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adres" class="control-label"></label>
-                <input asp-for="Adres" class="form-control" />
-                <span asp-validation-for="Adres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostaKodu" class="control-label"></label>
-                <input asp-for="PostaKodu" class="form-control" />
-                <span asp-validation-for="PostaKodu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sehir" class="control-label"></label>
-                <input asp-for="Sehir" class="form-control" />
-                <span asp-validation-for="Sehir" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ilce" class="control-label"></label>
-                <input asp-for="Ilce" class="form-control" />
-                <span asp-validation-for="Ilce" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resim" class="control-label"></label>
-                <input asp-for="Resim" class="form-control" />
-                <span asp-validation-for="Resim" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DogumTarihi" class="control-label"></label>
-                <input asp-for="DogumTarihi" class="form-control" />
-                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DogumYeri" class="control-label"></label>
-                <input asp-for="DogumYeri" class="form-control" />
-                <span asp-validation-for="DogumYeri" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SurucuEhliyeti" class="control-label"></label>
-                <input asp-for="SurucuEhliyeti" class="form-control" />
-                <span asp-validation-for="SurucuEhliyeti" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cinsiyet" class="control-label"></label>
-                <input asp-for="Cinsiyet" class="form-control" />
-                <span asp-validation-for="Cinsiyet" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AskerlikDurumu" class="control-label"></label>
-                <input asp-for="AskerlikDurumu" class="form-control" />
-                <span asp-validation-for="AskerlikDurumu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MedeniDurumu" class="control-label"></label>
-                <input asp-for="MedeniDurumu" class="form-control" />
-                <span asp-validation-for="MedeniDurumu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Linkedn" class="control-label"></label>
-                <input asp-for="Linkedn" class="form-control" />
-                <span asp-validation-for="Linkedn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Websitesi" class="control-label"></label>
-                <input asp-for="Websitesi" class="form-control" />
-                <span asp-validation-for="Websitesi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UyeSifresi" class="control-label"></label>
-                <input asp-for="UyeSifresi" class="form-control" />
-                <span asp-validation-for="UyeSifresi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+	<!--  particles  -->
+	<div id="particles-js"></div>
+	<div class="w3ls-pos">
+		<h1 style="margin:0 !important;">CvWeb Kayıt Sayfası</h1>
+	
+		<div class="w3ls-login box">
+			<!-- form starts here -->
+			<form method="post">
+				<div class="agile-field-txt">
+					
+					<input type="text" asp-for="AdSoyad" placeholder="Name" required />
+				</div>
+				<div class="agile-field-txt">
+					
+					<input type="tel" asp-for="Telefon" placeholder="Number" required />
+				</div>
+				<div class="agile-field-txt">
+					
+					<input type="email" asp-for="Eposta" placeholder="mail" required />
+				</div>
+				
+				<div class="agile-field-txt">
+					
+					<input type="password" asp-for="Sifre" placeholder="******" required />
+					<div class="agile_label">
+						<a href="/Kayit/KayitOl/" style="color:white">Bir hesabın yok mu?</a>
+						<br />
+					</div>
+				</div>
+				<div class="w3ls-bot">
+					<input type="submit" value="Kayıt Ol">
+				</div>
+			</form>
+		</div>
+		<!-- //form ends here -->
+		<!--copyright-->
+		<div class="copy-wthree">
+			<p>
+				© 2018 Particles Login Form. All Rights Reserved | Design by
+				<a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+			</p>
+		</div>
+		<!--//copyright-->
+	</div>
+	<!-- scripts required  for particle effect -->
+	<script src='~/Login/js/particles.min.js'></script>
+	<script src="~/Login/js/index.js"></script>
+	<!-- //scripts required for particle effect -->
+	<script>
+		@if (TempData["hata"]!=null)
+		{
+			<text>
+			alert("@TempData["hata"].ToString()")
+			</text>
+		}
+	</script>
 </body>
+
 </html>

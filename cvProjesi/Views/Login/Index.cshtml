@@ -1,4 +1,75 @@
 ﻿
+@model cvProjesi.Models.KisiselBilgi
+
+
+
 @{
+    Layout = null;
 }
-<p>Giriş Yaptınız</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/demo/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/demo/javascript.js"></script>
+</head>
+<body>
+
+    <!-- JQUERY STEP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+    <div class="wrapper">
+        <form  asp-action="Index">
+            <div id="wizard">
+               
+                <!-- SECTION 1 -->
+                <h4>                
+                </h4>
+                <section>
+                    
+                    <div class="form-row"> <input type="text" asp-for="Ad" class="form-control" placeholder="Name"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Soyad" as class="form-control" placeholder="Surname"> </div>
+                    <div class="form-row">
+                        <input class="form-control" asp-for="Resim" type="file" id="formFile">
+                    </div>
+                    <div class="form-row"> <input type="text" asp-for="EPosta" class="form-control" placeholder="EPosta"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Telefon" class="form-control" placeholder="Phone Number"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Adres" class="form-control" placeholder="Street address"> </div>
+                    <div class="form-row"> <input type="text" asp-for="PostaKodu" class="form-control" placeholder="Posta Kodu"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Sehir" class="form-control" placeholder="Sehir"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Ilce" class="form-control" placeholder="İlçe"> </div>
+                    <div class="form-row"> <input type="text" asp-for="DogumTarihi" class="form-control" placeholder="Doğum Tarihi" > </div>
+                    <div class="form-row"> <input type="text" asp-for="DogumYeri" class="form-control" placeholder="Dogum Yeri"> </div>
+                    <div class="form-row"> <input type="text" asp-for="SurucuEhliyeti" class="form-control" placeholder="Sürücü Ehliyeti"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Cinsiyet" class="form-control" placeholder="Cinsiyet"> </div>
+                    <div class="form-row"> <input type="text" asp-for="AskerlikDurumu" class="form-control" placeholder="Askerlik Durumu"> </div>
+                     <div class="form-row"> <input type="text" asp-for="MedeniDurumu" class="form-control" placeholder="Medeni Durumu"> </div>
+                    <div class="form-row"> <input type="text" asp-for="Linkedn" class="form-control" placeholder="Linkedn"> </div>
+                </section> <!-- SECTION 2 -->
+                
+               @* <section>
+                    <div class="form-row"> <input type="text" class="form-control" placeholder="country"> </div>
+                    <div class="form-row"> <input type="text" class="form-control" placeholder="zip code"> </div>
+                    <div class="form-row" style="margin-bottom: 18px"> <textarea name="" id="" class="form-control" placeholder="Any order note about delivery or special offer" style="height: 108px"></textarea> </div>
+                </section> 
+               <!-- SECTION 3 -->
+                <h4></h4>*@
+                @*<input type="submit" value="">*@
+            </div>
+        </form>
+    </div>
+
+
+</body>
+</html>
+
+

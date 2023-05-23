@@ -1,4 +1,5 @@
-﻿@model cvProjesi.Models.Kurslar
+﻿@using System.Security.Claims;
+@model cvProjesi.Models.Kurslar
 
 @{
     ViewData["Title"] = "Create";
@@ -8,14 +9,18 @@
 <h1>Create</h1>
 
 <h4>Kurslar</h4>
+@User.FindFirst(ClaimTypes.GivenName).Value
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" style="">
                 <label asp-for="KullaniciId" class="control-label"></label>
-                <select asp-for="KullaniciId" class ="form-control" asp-items="ViewBag.KullaniciId"></select>
+                <select asp-for="KullaniciId" class="form-control">
+                    @*asp-items="ViewBag.KullaniciId"*@
+                    <option value="@User.FindFirst(ClaimTypes.GivenName).Value">@User.FindFirst(ClaimTypes.GivenName).Value</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="KursAdi" class="control-label"></label>
